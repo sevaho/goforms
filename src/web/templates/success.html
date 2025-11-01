@@ -1,0 +1,20 @@
+<div class="bg-blue-50 flex items-center justify-center h-screen text-center">
+    <div>
+        <!-- Replace the source of this image with the paper airplane -->
+        <div class="flex justify-center m-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mailbox">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" />
+                <path d="M12 11v-8h4l2 2l-2 2h-4" />
+                <path d="M6 15h1" />
+            </svg>
+        </div>
+
+        <div class="text-xl">{{ _t "Email send!" .Language .Country }}</div>
+        <div class="text-gray-500">{{ _t "Your mail was received well" .Language .Country }}</div>
+
+        <div class="btn btn-info btn-outline mt-5">
+            <a onclick="history.back();">{{ _t "Return to website" .Language .Country }}</a>
+        </div>
+    </div>
+</div>

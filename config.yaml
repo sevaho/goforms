@@ -1,0 +1,23 @@
+---
+forms:
+  - id: "947cb518-bb59-4761-8038-51fb00d28859"
+    provider: mailersend
+    name: Mailersend backend
+    subject: Contact form for mailersend
+    sender:
+      email: noreply@example.com
+      name: No reply
+    recipients:
+    - email: you@example.com
+      name: You
+  - id: "6b871aae-822b-470a-b97e-e1f110b6a673"
+    provider: fake
+    skipcaptcha: true
+    name: Fake backend
+    subject: Contact form for Fake
+    sender:
+      email: noreply@example.com
+      name: No reply
+    recipients:
+    - email: you@example.com
+      name: You

@@ -1,0 +1,34 @@
+  <div class="min-h-screen flex items-center justify-center p-4 bg-gray-200">
+    <div class="w-full max-w-2xl">
+
+      <!-- Header Section -->
+      <div class="bg-gradient-to-r from-teal-500 to-emerald-500 text-white text-center text-2xl font-bold py-5 rounded-t">
+        {{ _t "Contact" .Language .Country }}
+      </div>
+
+      <!-- Main Content Section -->
+      <div class="p-6 bg-white">
+        <table class="w-full text-sm table-auto">
+          <tbody>
+            {{ range $key, $values := .Content }}
+              {{ range $value := $values }}
+              <tr class="border-b border-gray-200">
+                <td class="py-2 pr-4 font-semibold text-gray-700 min-w-40">{{ $key }}</td>
+                <td class="py-2 text-gray-600 min-w-40">{{ $value }}</td>
+              </tr>
+              {{ end }}
+            {{ end }}
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- Footer Section -->
+      <div class="bg-gray-100 text-center text-xs text-gray-500 py-2 rounded-b">
+      {{ if .Website }}
+        <a class="m-0" href="{{ .Website }}">{{ .Website }}</a>
+      {{ end }}
+      </div>
+
+    </div>
+  </div>

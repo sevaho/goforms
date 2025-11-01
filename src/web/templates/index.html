@@ -1,0 +1,114 @@
+
+<!-- HLJS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<div class="bg-white text-slate-800">
+  <!-- Hero Section -->
+  <section class="text-center py-16 px-4">
+    <div class="flex justify-center mb-6">
+      <div class="text-blue-600 text-5xl">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mailbox">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" />
+                <path d="M12 11v-8h4l2 2l-2 2h-4" />
+                <path d="M6 15h1" />
+            </svg>
+      </div>
+    </div>
+    <h1 class="text-3xl font-bold mb-4">GoForms</h1>
+    <p class="max-w-2xl mx-auto text-gray-600 mb-6">
+      A simple, flexible tool to send form data from any website directly to your inbox.
+      Integrate in minutes with no backend required.
+    </p>
+    <p class="max-w-2xl mx-auto text-gray-600 mb-6">
+      Open Source formspree alternative.
+    </p>
+    <div class="flex justify-center gap-4">
+      <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">View on GitHub</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="bg-slate-800 py-12 text-gray-100">
+    <div class="text-center mb-10">
+      <h2 class="text-xl font-semibold">Key Features</h2>
+    </div>
+    <div class="flex flex-col md:flex-row justify-center items-center gap-10 max-w-4xl mx-auto px-4">
+      <div class="text-center">
+        <div class="text-3xl mb-2">✔️</div>
+        <h3 class="font-semibold text-lg mb-1">Simple Configuration</h3>
+        <p class="text-gray-200 text-sm">Easy to use configuration to configure multiple forms.</p>
+      </div>
+      <div class="text-center">
+        <div class="text-blue-500 text-3xl mb-2">✔️</div>
+        <h3 class="font-semibold text-lg mb-1">No Backend Required</h3>
+        <p class="text-gray-200 text-sm">Just run the docker container and start sending mails.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-5 px-4 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold my-4">Integrations</h2>
+    <div class="ms-2">
+      <ul>
+        <li>Telegram for notifications</li>
+        <li>Google Recaptcha</li>
+        <li>Mailersend</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pb-5 px-4 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold my-4">Configure</h2>
+    <div class="ms-2">
+      <h3 class="text-l my-3">config.yaml</h3>
+      <div class="bg-gray-100 rounded p-4 font-mono text-sm text-gray-800 overflow-x-auto">
+        <pre><code>forms:
+  - id: "947cb518-bb59-4761-8038-51fb00d28859"
+    name: Contact form
+    subject: New contact from goforms.dev
+    sender:
+      email: noreply@goforms.dev
+      name: Sebastiaan Van Hoecke
+    recipients:
+    - email: sebastiaan@goforms.dev
+      name: Sebastiaan Van Hoecke
+</code></pre>
+      </div>
+
+      <h3 class="text-l my-3">Run docker</h3>
+      <div class="bg-gray-100 rounded p-4 font-mono text-sm text-gray-800 overflow-x-auto">
+        <pre><code class="">docker run goforms -v blabla</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-5 px-4 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold my-4">Quick Start</h2>
+    <div class="ms-2">
+
+      <h3 class="text-l my-3">Curl example</h3>
+      <div class="bg-gray-100 rounded p-4 font-mono text-sm text-gray-800 overflow-x-auto">
+        <pre><code class="">curl -v -X POST "http://localhost.3000/forms/947cb518-bb59-4761-8038-51fb00d28859" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "email=foo@bar.com&content=baz"</code></pre>
+      </div>
+
+      <h3 class="text-l my-3">HTML Form example</h3>
+      <div class="bg-gray-100 rounded p-4 font-mono text-sm text-gray-800 overflow-x-auto">
+        <pre><code class="language-html">&lt;form action="http://localhost:3000/forms/947cb518-bb59-4761-8038-51fb00d28859" method="POST"&gt;
+  &lt;input type="email" name="email" placeholder="Your email" required /&gt;
+  &lt;textarea name="content" placeholder="Your message" required&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-xs text-gray-500 border-t py-6">
+    Released under the MIT License.
+  </footer>
+</div>

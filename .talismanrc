@@ -1,0 +1,10 @@
+threshold: medium
+
+fileignoreconfig:
+- filename: go.sum
+  checksum: 462e3a36ebc07f311d831feff6798e57eae849f23db774ef913b134ccc9069d6
+- filename: static/css/app.css
+  checksum: 0e83a08629bfdd30767c93fa2561da532e68a3f3d1baf461602d61fbf4d7a542
+- filename: package-lock.json
+  checksum: a4740c25fd79a5edc7fd7ef097240d805bbbe35e9cdeface6145fc23e20678b4
+version: ""

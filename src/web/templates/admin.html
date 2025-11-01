@@ -1,0 +1,181 @@
+<div class="min-h-screen">
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <!-- Stats Overview -->
+        <div class="stats shadow mb-8 w-full">
+            <div class="stat">
+                <div class="stat-figure text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <div class="stat-title">Total Mails</div>
+                <div class="stat-value text-primary">{{.Count}}</div>
+                <div class="stat-desc">All time submissions</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-figure text-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div class="stat-title">Successful</div>
+                <div class="stat-value text-success">
+                    {{$successCount := 0}}
+                    {{range .Mails}}
+                        {{if .Success}}{{$successCount = add $successCount 1}}{{end}}
+                    {{end}}
+                    {{$successCount}}
+                </div>
+                <div class="stat-desc">Successfully sent</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-figure text-error">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div class="stat-title">Failed</div>
+                <div class="stat-value text-error">
+                    {{$failCount := 0}}
+                    {{range .Mails}}
+                        {{if not .Success}}{{$failCount = add $failCount 1}}{{end}}
+                    {{end}}
+                    {{$failCount}}
+                </div>
+                <div class="stat-desc">Failed to send</div>
+            </div>
+        </div>
+
+        <!-- Mails Table -->
+        <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+                <h2 class="card-title text-2xl mb-4">Recent Mail Submissions</h2>
+
+                {{if .Mails}}
+                <!-- Desktop Layout -->
+                <div class="hidden md:block space-y-4">
+                    {{range .Mails}}
+                    <div class="card bg-base-200 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="flex gap-4 h-[52rem]">
+                                <!-- Left Column: Mail Details -->
+                                <div class="w-1/2 space-y-4">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <span class="font-mono text-xs text-base-content/60">#{{.ID}}</span>
+                                        <span class="text-xs text-base-content/60">{{.CreatedAt.Format "Jan 02, 2006 15:04"}}</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="text-xs text-base-content/60 font-medium">Status:</span>
+                                        <div class="mt-1">
+                                            {{if .Success}}
+                                                <div class="badge badge-success badge-sm">Success</div>
+                                            {{else}}
+                                                <div class="badge badge-error badge-sm tooltip" data-tip="{{.Error}}">Failed</div>
+                                            {{end}}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <span class="text-xs text-base-content/60 font-medium">Recipients:</span>
+                                        <div class="mt-1 flex flex-wrap gap-1">
+                                            {{range .Recipients}}
+                                                <span class="">{{.}}</span>
+                                            {{end}}
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <span class="text-xs text-base-content/60 font-medium">Subject:</span>
+                                        <div class="text-sm mt-1 break-words">{{_html .Subject}}</div>
+                                    </div>
+
+
+                                    <div>
+                                        <span class="text-xs text-base-content/60 font-medium">Provider:</span>
+                                        <div class="badge badge-neutral badge-sm mt-1">{{.MailProvider}}</div>
+                                    </div>
+                                </div>
+
+                                <!-- Right Column: Mail Content -->
+                                <div class="w-1/2">
+                                    <div class="mt-1 h-[50rem] border border-base-300 rounded-lg bg-base-100 relative">
+                                        <div class="absolute inset-0 overflow-y-auto">
+                                            <div class="p-3 text-sm text-center">
+                                                {{_html .MailFrom}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+
+                <!-- Mobile Cards -->
+                <div class="md:hidden space-y-4">
+                    {{range .Mails}}
+                    <div class="card bg-base-200 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-mono text-xs text-base-content/60">#{{.ID}}</span>
+                                {{if .Success}}
+                                    <div class="badge badge-success badge-sm">Success</div>
+                                {{else}}
+                                    <div class="badge badge-error badge-sm">Failed</div>
+                                {{end}}
+                            </div>
+
+                            <div class="space-y-2">
+                                <div>
+                                    <span class="text-xs text-base-content/60">Date:</span>
+                                    <span class="text-sm ml-2">{{.CreatedAt.Format "Jan 02, 2006 15:04"}}</span>
+                                </div>
+
+                                <div>
+                                    <span class="text-xs text-base-content/60">Subject:</span>
+                                    <span class="text-sm ml-2">{{_html .Subject}}</span>
+                                </div>
+
+                                <div>
+                                    <span class="text-xs text-base-content/60">Recipients:</span>
+                                    <div class="mt-1">
+                                        {{range .Recipients}}
+                                            <span class="mr-1">{{.}}</span>
+                                        {{end}}
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-between items-center pt-2">
+                                    <div class="badge badge-neutral badge-sm">{{.MailProvider}}</div>
+                                    {{if not .Success}}
+                                        <div class="text-xs text-error truncate max-w-48" title="{{.Error}}">{{.Error}}</div>
+                                    {{end}}
+                                </div>
+
+                                <div>
+                                    <div class="text-sm ml-2 max-h-96 overflow-y-auto">{{_html .MailFrom}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+                {{else}}
+                <!-- Empty State -->
+                <div class="text-center py-12">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 text-base-content/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <h3 class="mt-4 text-lg font-medium text-base-content">No mail submissions yet</h3>
+                    <p class="mt-2 text-sm text-base-content/60">Start using your forms to see submissions here.</p>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</div>

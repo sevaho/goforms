@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{{ if .Language }}
+<html lang="{{ _lower .Language }}">
+{{ else }}
+<html lang="en">
+{{ end }}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>
+        </title>
+
+        <link rel="stylesheet" href="/static/css/app.css?version={{_random_id }}">
+
+        <script defer data-domain="goforms.dev" src="https://plausible.io/js/script.js"></script>
+
+        {{ if eq _is_development true }}
+        <script src="/livereload.js"></script>
+        {{ end }}
+
+        <style>
+        </style>
+    </head>
+
+    <body class="">
+        {{ yield }}
+
+        <script>
+            console.log("IS_DEVELOPMENT: {{ _is_development }}, RELEASE: {{ _release }}");
+        </script>
+    </body>
+</html>

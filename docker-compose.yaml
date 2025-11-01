@@ -1,0 +1,36 @@
+---
+version: '3'
+
+services:
+
+  db:
+    image: postgres:16-alpine
+    ports:
+      - 15432:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=docker
+    command: "docker-entrypoint.sh postgres -c fsync=off -c shared_buffers=512MB -c jit=false"
+    networks:
+      - goforms
+  goforms:
+    image: sevaho/goforms:0.0.12
+    ports:
+      - 30000:3000
+    environment:
+      - DB_DSN=postgresql://postgres:docker@db:5432/postgres
+      - SECRET_KEY=changeme
+      - API_KEY=changeme
+      - GOOGLE_RECAPTCHA_SECRET_KEY=changeme
+      - MAILERSEND_API_KEY=changeme
+      - TELEGRAM_BOT_API_KEY=changeme
+      - TELEGRAM_BOT_CHAT_ID=1
+    command: "--serve --config /data/config.yaml"
+    volumes:
+      - .:/data
+    networks:
+      - goforms
+
+networks:
+  goforms:
+    name: goforms
