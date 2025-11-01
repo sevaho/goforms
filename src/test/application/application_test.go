@@ -5,7 +5,6 @@ import (
 	"encoding/base64"
 	"fmt"
 	"net/http"
-	"os"
 	"sync"
 	"time"
 
@@ -21,7 +20,7 @@ import (
 )
 
 var client = resty.New()
-var port = 30000
+var port = 30001
 var testApp = fmt.Sprintf("http://localhost:%d", port)
 
 var formWithMailerSendID = uuid.NewString()
@@ -62,11 +61,7 @@ var _ = Context("Application", func() {
 		env = config.New()
 		env.FORMS_CONFIG_BASE64 = base64.StdEncoding.EncodeToString(formsconfig)
 		env.LOG_LEVEL = 4
-		env.IS_DEVELOPMENT = false  // Force use of embedded templates for tests
-
-		fmt.Println(env.TEMPLATES_DIRECTORY)
-		pwd, _ := os.Getwd()
-		fmt.Println(pwd)
+		env.IS_DEVELOPMENT = false // Force use of embedded templates for tests
 
 		// setup application
 		ctx, cancel = context.WithCancel(context.Background())
