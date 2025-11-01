@@ -25,10 +25,10 @@ sqlgen: ## Generate SQL
 sqlgenr: ## Generate SQL on repeat
 	find db | entr -r make sqlgen
 
-migrate:
+migrate: ## Run migrations
 	go run . --migrate
 
-css: ## CSS
+css: ## Run CSS server
 	tailwindcss -i ./src/web/assets/app.css -o ./src/web/static/css/app.css --watch
 
 update: ## Update all dependencies
@@ -41,10 +41,7 @@ lint: ## Lint
 test: ## Test
 	ginkgo -r
 
-test-one: ## Test
-	find . | entr -r ginkgo --focus "Fetching the index page" -r
-
-testr: # Test
+testr: # Test with entr (rerun on file change)
 	find . | entr -r ginkgo -r
 
 compose: ## Run docker compose stack
