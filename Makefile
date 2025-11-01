@@ -4,6 +4,7 @@
 
 ##---------- Variables --------------------------------------------------------
 PREFIX = /usr/local  # Default installation directory
+KO_DOCKER_REPO = sevaho/goforms
 
 ##---------- Build targets ----------------------------------------------------
 
