@@ -1,71 +1,137 @@
 
 <!-- HLJS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
-<div class="bg-white text-slate-800">
-  <!-- Hero Section -->
-  <section class="text-center py-16 px-4">
-    <div class="flex justify-center mb-6">
-      <div class="text-blue-600 text-5xl">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mailbox">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" />
-                <path d="M12 11v-8h4l2 2l-2 2h-4" />
-                <path d="M6 15h1" />
-            </svg>
+<div class="min-h-screen bg-white text-gray-900 font-sans">
+  <!-- Navigation -->
+  <nav class="border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-800">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" />
+            <path d="M12 11v-8h4l2 2l-2 2h-4" />
+            <path d="M6 15h1" />
+          </svg>
+          <span class="text-xl font-semibold text-gray-900">GoForms</span>
+        </div>
+        <div class="flex items-center space-x-6">
+          <a href="https://github.com/sevaho/goforms" class="text-gray-600 hover:text-gray-900 transition-colors">GitHub</a>
+        </div>
       </div>
     </div>
-    <h1 class="text-3xl font-bold mb-4">GoForms</h1>
-    <p class="max-w-2xl mx-auto text-gray-600 mb-6">
-      A simple, flexible tool to send form data from any website directly to your inbox.
-      Integrate in minutes with no backend required.
-    </p>
-    <p class="max-w-2xl mx-auto text-gray-600 mb-6">
-      Open Source formspree alternative.
-    </p>
-    <div class="flex justify-center gap-4">
-      <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">View on GitHub</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center">
+      <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          GoForms
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+        Send form data from any website directly to your inbox. No backend required. 
+        Self-hosted, secure, and open source.
+      </p>
+      <div class="flex justify-center gap-4 mb-12">
+        <a href="#get-started" class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors font-medium">
+          Get Started
+        </a>
+        <a href="https://github.com/sevaho/goforms" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:border-gray-400 transition-colors font-medium">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+    
+    <!-- Visual Demo -->
+    <div class="bg-gray-50 rounded-xl p-8 max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+          <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+          <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+          <span class="text-sm text-gray-500 ml-2">contact-form.html</span>
+        </div>
+        <div class="font-mono text-sm text-gray-800">
+          <div class="text-blue-600">&lt;form method="<span class="text-green-600">POST</span>"&gt; action="<span class="text-green-600">https://goforms.dev/forms/your-form-id</span>"&gt;</div>
+          <div class="ml-2 text-gray-800">&lt;input type="email" name="email" /&gt;</div>
+          <div class="ml-2 text-gray-800">&lt;textarea name="message"&gt;&lt;/textarea&gt;</div>
+          <div class="ml-2 text-gray-800">&lt;button type="submit"&gt;Send&lt;/button&gt;</div>
+          <div class="text-blue-600">&lt;/form&gt;</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Features Section -->
-  <section class="bg-slate-800 py-12 text-gray-100">
-    <div class="text-center mb-10">
-      <h2 class="text-xl font-semibold">Key Features</h2>
-    </div>
-    <div class="flex flex-col md:flex-row justify-center items-center gap-10 max-w-4xl mx-auto px-4">
-      <div class="text-center">
-        <div class="text-3xl mb-2">✔️</div>
-        <h3 class="font-semibold text-lg mb-1">Simple Configuration</h3>
-        <p class="text-gray-200 text-sm">Easy to use configuration to configure multiple forms.</p>
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Everything you need</h2>
+        <p class="text-lg text-gray-600">Simple, secure, and reliable form handling</p>
       </div>
-      <div class="text-center">
-        <div class="text-blue-500 text-3xl mb-2">✔️</div>
-        <h3 class="font-semibold text-lg mb-1">No Backend Required</h3>
-        <p class="text-gray-200 text-sm">Just run the docker container and start sending mails.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Simple Setup</h3>
+          <p class="text-gray-600">Start receiving form submissions in minutes. No complex configuration required.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Spam Protection</h3>
+          <p class="text-gray-600">Built-in reCAPTCHA integration keeps unwanted submissions away.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Secure & Private</h3>
+          <p class="text-gray-600">All form data is encrypted and stored securely. Self-hosted for complete control.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="pb-5 px-4 max-w-4xl mx-auto">
-    <h2 class="text-xl font-bold my-4">Integrations</h2>
-    <div class="ms-2">
-      <ul>
-        <li>Telegram for notifications</li>
-        <li>Google Recaptcha</li>
-        <li>Mailersend</li>
-      </ul>
-    </div>
-  </section>
+  <!-- Installation Section -->
+  <section id="get-started" class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Get started in minutes</h2>
+        <p class="text-lg text-gray-600">Choose your deployment method</p>
+      </div>
 
-  <section class="pb-5 px-4 max-w-4xl mx-auto">
-    <h2 class="text-xl font-bold my-4">Configure</h2>
-    <div class="ms-2">
-      <h3 class="text-l my-3">config.yaml</h3>
-      <div class="bg-gray-100 rounded p-4 font-mono text-sm text-gray-800 overflow-x-auto">
-        <pre><code>forms:
+      <div class="space-y-8">
+        <!-- Docker -->
+
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Docker</h3>
+          <div class="rounded-lg p-4 font-mono text-sm overflow-x-auto">
+            <pre><code class="language-yaml text-gray-100">docker run -d \
+    --name goforms \
+    -p 3000:3000 \
+    -v $(pwd)/config.yaml:/app/config.yaml \
+    goforms/goforms:latest
+            </code></pre>
+          </div>
+        </div>
+
+        <!-- Configuration -->
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Configuration</h3>
+          <div class="rounded-lg p-4 font-mono text-sm overflow-x-auto">
+            <pre><code class="language-yaml text-gray-100">forms:
   - id: "947cb518-bb59-4761-8038-51fb00d28859"
     name: Contact form
     subject: New contact from goforms.dev
@@ -74,41 +140,44 @@
       name: Sebastiaan Van Hoecke
     recipients:
     - email: sebastiaan@goforms.dev
-      name: Sebastiaan Van Hoecke
-</code></pre>
-      </div>
+      name: Sebastiaan Van Hoecke</code></pre>
+          </div>
+        </div>
 
-      <h3 class="text-l my-3">Run docker</h3>
-      <div class="bg-gray-100 rounded p-4 font-mono text-sm text-gray-800 overflow-x-auto">
-        <pre><code class="">docker run goforms -v blabla</code></pre>
-      </div>
-    </div>
-  </section>
-
-  <section class="pb-5 px-4 max-w-4xl mx-auto">
-    <h2 class="text-xl font-bold my-4">Quick Start</h2>
-    <div class="ms-2">
-
-      <h3 class="text-l my-3">Curl example</h3>
-      <div class="bg-gray-100 rounded p-4 font-mono text-sm text-gray-800 overflow-x-auto">
-        <pre><code class="">curl -v -X POST "http://localhost.3000/forms/947cb518-bb59-4761-8038-51fb00d28859" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "email=foo@bar.com&content=baz"</code></pre>
-      </div>
-
-      <h3 class="text-l my-3">HTML Form example</h3>
-      <div class="bg-gray-100 rounded p-4 font-mono text-sm text-gray-800 overflow-x-auto">
-        <pre><code class="language-html">&lt;form action="http://localhost:3000/forms/947cb518-bb59-4761-8038-51fb00d28859" method="POST"&gt;
+        <!-- Usage Example -->
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">HTML Form Example</h3>
+          <div class="rounded-lg p-4 font-mono text-sm overflow-x-auto">
+            <pre><code class="language-html text-gray-100">&lt;form action="http://localhost:3000/forms/947cb518-bb59-4761-8038-51fb00d28859"
+  method="POST"&gt;
   &lt;input type="email" name="email" placeholder="Your email" required /&gt;
   &lt;textarea name="content" placeholder="Your message" required&gt;&lt;/textarea&gt;
   &lt;button type="submit"&gt;Send&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center text-xs text-gray-500 border-t py-6">
-    Released under the MIT License.
+  <footer class="border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" />
+            <path d="M12 11v-8h4l2 2l-2 2h-4" />
+            <path d="M6 15h1" />
+          </svg>
+          <span class="text-gray-600 font-medium">GoForms</span>
+        </div>
+        <div class="flex items-center space-x-6 text-sm text-gray-500">
+          <span>Released under the MIT License</span>
+          <a href="https://github.com/sevaho/goforms" class="hover:text-gray-700 transition-colors">GitHub</a>
+        </div>
+      </div>
+    </div>
   </footer>
 </div>
