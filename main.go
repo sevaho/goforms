@@ -2,10 +2,7 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"net/url"
-	"os"
-	"path/filepath"
 
 	"github.com/amacneil/dbmate/pkg/dbmate"
 	_ "github.com/amacneil/dbmate/pkg/driver/postgres"
@@ -24,13 +21,6 @@ func main() {
 		migrate        = pflag.Bool("migrate", false, "Run migrations.")
 		newmigration   = pflag.Bool("new-migration", false, "New migrations.")
 	)
-	ex, err := os.Executable()
-	if err != nil {
-		panic(err)
-	}
-	exPath := filepath.Dir(ex)
-	fmt.Println(exPath)
-
 	pflag.Parse()
 
 	if *serve {
