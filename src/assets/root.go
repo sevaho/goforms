@@ -1,4 +1,4 @@
-package web
+package assets
 
 import (
 	"embed"
@@ -6,6 +6,9 @@ import (
 
 //go:embed templates
 var Templates embed.FS
+
+//go:embed migrations
+var Migrations embed.FS
 
 //go:embed static
 var Static embed.FS

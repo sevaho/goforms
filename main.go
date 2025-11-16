@@ -4,9 +4,10 @@ import (
 	"context"
 	"net/url"
 
-	"github.com/amacneil/dbmate/pkg/dbmate"
-	_ "github.com/amacneil/dbmate/pkg/driver/postgres"
+	"github.com/amacneil/dbmate/v2/pkg/dbmate"
+	_ "github.com/amacneil/dbmate/v2/pkg/driver/postgres"
 	app "github.com/sevaho/goforms/src"
+	"github.com/sevaho/goforms/src/assets"
 	"github.com/sevaho/goforms/src/config"
 	"github.com/sevaho/goforms/src/pkg/logger"
 	"github.com/spf13/pflag"
@@ -56,6 +57,8 @@ func Migrate() {
 
 	u, _ := url.Parse(config.DB_DSN)
 	db := dbmate.New(u)
+	db.FS = assets.Migrations
+	db.MigrationsDir = []string{"migrations"}
 
 	logger.Logger.Info().Msg("Applying migrations...")
 	err := db.CreateAndMigrate()

@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/labstack/echo/v4"
-	static "github.com/sevaho/goforms/src/web"
+	"github.com/sevaho/goforms/src/assets"
 )
 
 func handleGetTemplatePage() echo.HandlerFunc {
@@ -26,7 +26,7 @@ func handleGetTemplatePage() echo.HandlerFunc {
 
 			return ctx.Render(http.StatusOK, template, params)
 		} else {
-			templates, err := getAllTemplateFilePaths(static.Templates)
+			templates, err := getAllTemplateFilePaths(assets.Templates)
 
 			if err != nil {
 				return ctx.Render(500, "error", Params{"Error": err.Error()})

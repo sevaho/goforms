@@ -30,7 +30,7 @@ migrate: ## Run migrations
 	go run . --migrate
 
 css: ## Run CSS server
-	tailwindcss -i ./src/web/assets/app.css -o ./src/web/static/css/app.css --watch
+	tailwindcss -i ./src/assets/css/app.css -o ./src/web/static/css/app.css --watch
 
 update: ## Update all dependencies
 	go get -u

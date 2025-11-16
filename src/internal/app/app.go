@@ -20,7 +20,7 @@ import (
 	"github.com/sevaho/goforms/src/pkg/recaptcha"
 	"github.com/sevaho/goforms/src/pkg/renderer"
 	"github.com/sevaho/goforms/src/pkg/telegram"
-	"github.com/sevaho/goforms/src/web"
+	"github.com/sevaho/goforms/src/assets"
 	"github.com/unrolled/secure"
 
 	"github.com/sevaho/livereload"
@@ -59,7 +59,7 @@ func New(config *config.Config) *App {
 	if config.IS_DEVELOPMENT {
 		server.StaticFS("/static", os.DirFS(config.STATIC_DIRECTORY))
 	} else {
-		staticFS, _ := fs.Sub(web.Static, "static")
+		staticFS, _ := fs.Sub(assets.Static, "static")
 		server.StaticFS("/static", staticFS)
 	}
 	server.HideBanner = true
@@ -68,7 +68,7 @@ func New(config *config.Config) *App {
 	// * * * * * * * * * * * * * * * * * *
 	// RENDER ENGINE
 	// * * * * * * * * * * * * * * * * * *
-	renderer := renderer.NewRenderEngine(config.IS_DEVELOPMENT, config.TEMPLATES_DIRECTORY, config.RELEASE, web.Templates)
+	renderer := renderer.NewRenderEngine(config.IS_DEVELOPMENT, config.TEMPLATES_DIRECTORY, config.RELEASE, assets.Templates)
 	server.Renderer = renderer
 
 	// * * * * * * * * * * * * * * * * * *
