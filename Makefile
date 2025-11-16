@@ -57,4 +57,4 @@ serve: ## Run docker locally
 	KO_DOCKER_REPO=$KO_DOCKER_REPO docker run -p3000:3000 --network="host" --env-file=.env $$(ko build .) --serve
 
 release: ## Release
-	export KO_DOCKER_REPO=$(KO_DOCKER_REPO) && ko build --tags $$(git describe --tags --abbrev=0) --bare .
+	export KO_DOCKER_REPO=$(KO_DOCKER_REPO) && ko build --tags $$(git describe --tags --abbrev=0),latest --bare .
